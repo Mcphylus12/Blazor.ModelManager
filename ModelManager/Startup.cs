@@ -1,6 +1,8 @@
 using Manager;
 using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using ModelManager.Components;
+using Models;
 
 namespace ModelManager
 {
@@ -8,15 +10,14 @@ namespace ModelManager
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton(typeof(IModelRequestManagerStore), typeof(ModelRequestManagerStore));
-            services.AddSingleton(typeof(IModelProvider), typeof(ModelProvider));
+            services.AddModelManagerService();
         }
 
         public void Configure(IComponentsApplicationBuilder app)
         {
             app.AddComponent<App>("app");
 
-            var managers = app.Services.GetService<IModelRequestManagerStore>();
+            app.UseModelManagers(new ModelManagerConfiguration());
         }
     }
 }

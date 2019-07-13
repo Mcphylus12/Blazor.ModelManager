@@ -1,6 +1,6 @@
 ﻿namespace Manager
 {
-    internal interface IModelStoreCollection
+    public interface IModelStoreCollection
     {
         IModelStore GetStore<T>();
     }

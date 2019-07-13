@@ -2,7 +2,7 @@
 
 namespace Manager
 {
-    internal interface IModelStore
+    public interface IModelStore
     {
         void RemoveHandler(string key, Action<object> listener);
 
