@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Manager
 {
-    internal class ModelRequestManagerStore : IModelRequestManagerStore
+    public class ModelRequestManagerStore : IModelRequestManagerStore
     {
         private Dictionary<Type, IModelRequestManager> managers;
 
@@ -19,7 +19,7 @@ namespace Manager
 
         public void RegisterModelManager<ModelType>(IModelRequestManager manager)
         {
-            managers[typeof(ModelType)] = manager;
+            managers.Add(typeof(ModelType), manager);
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Manager;
 using Microsoft.AspNetCore.Components;
-using Models;
 using System;
 
 namespace ModelManager.Components
@@ -11,7 +10,10 @@ namespace ModelManager.Components
         [Inject]
         private IModelProvider modelProvider { get; set; }
 
-        protected T Model { get; set; }
+        [Parameter]
+        private string Key { get; set; }
+
+        protected T DataModel { get; set; }
 
         public void OnCompleted()
         {
@@ -23,7 +25,7 @@ namespace ModelManager.Components
 
         public void OnNext(T value)
         {
-            Model = value;
+            DataModel = value;
         }
 
         protected override void OnInit()
@@ -32,7 +34,7 @@ namespace ModelManager.Components
 
             var handle = modelProvider.RequestHandle<T>();
 
-            handle.UpdateKey("Summer");
+            handle.UpdateKey(Key);
 
             handle.Subscribe(this);
         }

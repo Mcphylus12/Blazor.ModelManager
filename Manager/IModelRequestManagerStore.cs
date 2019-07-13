@@ -1,7 +1,9 @@
 ﻿namespace Manager
 {
-    internal interface IModelRequestManagerStore
+    public interface IModelRequestManagerStore
     {
         IModelRequestManager GetManager<T>();
+
+        void RegisterModelManager<ModelType>(IModelRequestManager manager);
     }
 }

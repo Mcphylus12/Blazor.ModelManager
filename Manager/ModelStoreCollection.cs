@@ -14,6 +14,11 @@ namespace Manager
 
         public IModelStore GetStore<T>()
         {
+            if (!modelStore.ContainsKey(typeof(T)))
+            {
+                modelStore.Add(typeof(T), new ModelStore());
+            }
+
             return modelStore[typeof(T)];
         }
 

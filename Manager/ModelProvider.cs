@@ -7,9 +7,9 @@ namespace Manager
         private readonly IModelRequestManagerStore _modelRequestManagerStore;
         private readonly IModelStoreCollection _modelStoreCollection;
 
-        public ModelProvider()
+        public ModelProvider(IModelRequestManagerStore managerStore)
         {
-            this._modelRequestManagerStore = new ModelRequestManagerStore();
+            this._modelRequestManagerStore = managerStore;
             this._modelStoreCollection = new ModelStoreCollection();
         }
 

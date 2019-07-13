@@ -1,6 +1,6 @@
 ﻿namespace Manager
 {
-    internal interface IModelRequestManager
+    public interface IModelRequestManager
     {
         void AddInterest(string key);
 
