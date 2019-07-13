@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Manager
 {
-    public class ModelRequestManagerStore : IModelRequestManagerStore, IModelManagerRegister
+    public class ModelRequestManagerStore : IModelRequestManagerStore
     {
         private Dictionary<Type, IModelRequestManager> managers;
 
@@ -17,15 +17,10 @@ namespace Manager
             return managers[typeof(T)];
         }
 
-        public void RegisterModelManager<ModelType>(IModelRequestManager manager)
-        {
-            managers.Add(typeof(ModelType), manager);
-        }
-
         public void RegisterModelManager<TModel, TModelManager>()
             where TModelManager : IModelRequestManager
         {
-
+            //Write DI adapter for resolving modedl manager
         }
     }
 }

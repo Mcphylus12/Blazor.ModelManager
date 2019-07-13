@@ -10,14 +10,12 @@ namespace ModelManager
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddModelManagerService();
+            services.AddModelManagerServices(new ModelManagerConfiguration());
         }
 
         public void Configure(IComponentsApplicationBuilder app)
         {
             app.AddComponent<App>("app");
-
-            app.UseModelManagers(new ModelManagerConfiguration());
         }
     }
 }

@@ -5,18 +5,20 @@ namespace ModelManager.Components
 {
     public static class ServiceCollectionExtensions
     {
-        public static void AddModelManagerService(this IServiceCollection services)
+        public static void AddModelManagerServices(this IServiceCollection services, IModelManagerConfiguration configuration)
         {
             ModelRequestManagerStore managerStore = new ModelRequestManagerStore();
             services.AddSingleton(typeof(IModelRequestManagerStore), managerStore);
-            services.AddSingleton(typeof(IModelManagerRegister), managerStore);
 
-            ModelStoreCollection storeCollection = new ModelStoreCollection();
-            services.AddSingleton(typeof(IModelStorer), storeCollection);
-            services.AddSingleton(typeof(IModelStoreRegister), storeCollection);
-            services.AddSingleton(typeof(IModelStoreCollection), storeCollection);
+            ModelStoreCollection modelStore = new ModelStoreCollection();
+            services.AddSingleton(typeof(IModelStoreCollection), modelStore);
+            services.AddSingleton(typeof(IModelStoreRegister), modelStore);
+            services.AddSingleton(typeof(IModelStorer), modelStore);
 
             services.AddSingleton(typeof(IModelProvider), typeof(ModelProvider));
+
+            configuration.RegisterManagers(new ModelManagerRegisterer(managerStore, services));
+            configuration.RegisterStoreOverrides(new ModelStoreRegisterer(modelStore, services));
         }
     }
 }

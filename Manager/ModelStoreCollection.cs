@@ -28,6 +28,11 @@ namespace Manager
             throw new NotImplementedException();
         }
 
+        public void RegisterModelStore<TModel, TModelStore>() where TModelStore : class, IModelStore
+        {
+            throw new NotImplementedException();
+        }
+
         public void StoreModel<T>(string key, T model)
         {
             var store = GetStore<T>();

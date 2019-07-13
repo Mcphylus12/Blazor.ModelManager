@@ -1,8 +1,10 @@
-﻿namespace Manager
+﻿using ModelManager.Managers;
+
+namespace Manager
 {
     public interface IModelManagerRegister
     {
         void RegisterModelManager<TModel, TModelManager>()
-            where TModelManager : IModelRequestManager;
+            where TModelManager : ModelRequestManager;
     }
 }
