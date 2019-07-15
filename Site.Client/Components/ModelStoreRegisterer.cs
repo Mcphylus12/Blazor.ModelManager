@@ -18,7 +18,7 @@ namespace ModelManager.Components
             where TModelStore : class, IModelStore 
         {
             services.AddSingleton<TModelStore>();
-            modelStore.RegisterModelStore<TModel, TModelStore>();
+            modelStore.RegisterStoreOverride<TModel, TModelStore>();
         }
     }
 }

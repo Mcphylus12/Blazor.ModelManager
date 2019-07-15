@@ -22,13 +22,8 @@ namespace Manager
             return modelStore[typeof(T)];
         }
 
-        public void RegisterStoreOverride<TModel, TStore>() 
-            where TStore : IModelStore
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RegisterModelStore<TModel, TModelStore>() where TModelStore : class, IModelStore
+        public void RegisterStoreOverride<TModel, TModelStore>() 
+            where TModelStore : class, IModelStore
         {
             throw new NotImplementedException();
         }

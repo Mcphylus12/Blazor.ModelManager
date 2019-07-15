@@ -10,11 +10,17 @@ namespace Manager
 
         public ModelStore()
         {
+            models = new Dictionary<string, object>();
             listeners = new Dictionary<string, HashSet<Action<object>>>();
         }
 
         public void AddHandler(string key, Action<object> listener)
         {
+            if (!listeners.ContainsKey(key))
+            {
+                listeners.Add(key, new HashSet<Action<object>>());
+            }
+
             listeners[key].Add(listener);
         }
 

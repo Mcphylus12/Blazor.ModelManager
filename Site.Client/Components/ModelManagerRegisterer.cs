@@ -4,14 +4,12 @@ using ModelManager.Managers;
 
 namespace ModelManager.Components
 {
-    internal class ModelManagerRegisterer : IModelManagerRegister
+    public class ModelManagerRegisterer : IModelManagerRegister
     {
-        private ModelRequestManagerStore managerStore;
         private IServiceCollection services;
 
-        public ModelManagerRegisterer(ModelRequestManagerStore managerStore, IServiceCollection services)
+        public ModelManagerRegisterer(IServiceCollection services)
         {
-            this.managerStore = managerStore;
             this.services = services;
         }
 
@@ -19,7 +17,6 @@ namespace ModelManager.Components
             where TModelManager : ModelRequestManager
         {
             services.AddSingleton<TModelManager>();
-            managerStore.RegisterModelManager<TModel, TModelManager>();
         }
     }
 }

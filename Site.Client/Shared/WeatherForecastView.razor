@@ -1,0 +1,16 @@
+@using ModelManager.Components
+@using Site.Shared;
+
+@inherits ModelsComponent<WeatherForecast>
+
+<h3>WeatherForecast</h3>
+
+@if (DataModel == null)
+{
+<div>LoadingData</div>
+}
+else
+{
+    @DataModel.Summary;
+}
+

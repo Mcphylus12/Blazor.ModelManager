@@ -33,13 +33,20 @@ namespace Manager
 
         private void UpdateModelStore(string newKey)
         {
-            _modelStore.RemoveHandler(_currentKey, HandleModelUpdated);
+            if (_currentKey != null)
+            {
+                _modelStore.RemoveHandler(_currentKey, HandleModelUpdated);
+            }
+
             _modelStore.AddHandler(newKey, HandleModelUpdated);
         }
 
         private void UpdateRequestManager(string newKey)
         {
-            _manager.RemoveInterest(_currentKey);
+            if (_currentKey != null)
+            {
+                _manager.RemoveInterest(_currentKey);
+            }
             _manager.AddInterest(newKey);
         }
 

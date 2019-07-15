@@ -4,10 +4,10 @@ namespace Manager
 {
     public class ModelProvider : IModelProvider
     {
-        private readonly IModelRequestManagerStore _modelRequestManagerStore;
+        private readonly ModelRequestManagerStore _modelRequestManagerStore;
         private readonly IModelStoreCollection storeCollection;
 
-        public ModelProvider(IModelRequestManagerStore managerStore, IModelStoreCollection storeCollection)
+        public ModelProvider(ModelRequestManagerStore managerStore, IModelStoreCollection storeCollection)
         {
             this._modelRequestManagerStore = managerStore;
             this.storeCollection = storeCollection;

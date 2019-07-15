@@ -5,22 +5,26 @@ namespace Manager
 {
     public class ModelRequestManagerStore : IModelRequestManagerStore
     {
-        private Dictionary<Type, IModelRequestManager> managers;
+        private readonly IModelManagerResolver typeResolver;
+        private Dictionary<Type, Type> managers;
 
-        public ModelRequestManagerStore()
+        public ModelRequestManagerStore(IModelManagerResolver typeResolver)
         {
-            managers = new Dictionary<Type, IModelRequestManager>();
+            managers = new Dictionary<Type, Type>();
+            this.typeResolver = typeResolver;
         }
 
         public IModelRequestManager GetManager<T>()
         {
-            return managers[typeof(T)];
+            Type managerType = managers[typeof(T)];
+
+            return typeResolver.GetManager(managerType);
         }
 
         public void RegisterModelManager<TModel, TModelManager>()
             where TModelManager : IModelRequestManager
         {
-            //Write DI adapter for resolving modedl manager
+            managers.Add(typeof(TModel), typeof(TModelManager));
         }
     }
 }

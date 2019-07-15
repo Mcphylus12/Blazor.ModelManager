@@ -26,6 +26,7 @@ namespace ModelManager.Components
         public void OnNext(T value)
         {
             DataModel = value;
+            base.StateHasChanged();
         }
 
         protected override void OnInit()

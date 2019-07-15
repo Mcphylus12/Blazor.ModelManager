@@ -1,6 +1,7 @@
 ﻿using Manager;
 using Microsoft.AspNetCore.Components;
-using Models;
+using Site.Shared;
+using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,19 +13,20 @@ namespace ModelManager.Managers
         private readonly HttpClient http;
         private CancellationTokenSource _cancellationToken;
 
-        public WeatherForecastManager(IModelStorer modelStorer, HttpClient http) 
+        public WeatherForecastManager(IModelStorer modelStorer, HttpClient http)
             : base(modelStorer)
         {
+            _cancellationToken = new CancellationTokenSource();
             this.http = http;
         }
 
         private async Task OnPollAsync()
         {
-            WeatherForecastModel[] forecasts = await http.GetJsonAsync<WeatherForecastModel[]>("sample-data/weather.json");
+            WeatherForecast[] forecasts = await http.GetJsonAsync<WeatherForecast[]>("api/SampleData/WeatherForecasts");
 
             foreach (var forecast in forecasts)
             {
-                ModelStorer.StoreModel(forecast.Date.ToString(), forecast);
+                ModelStorer.StoreModel(forecast.Id, forecast);
             }
         }
 
@@ -33,6 +35,7 @@ namespace ModelManager.Managers
             if (Keys.Count == 0)
             {
                 _cancellationToken.Cancel();
+                _cancellationToken = new CancellationTokenSource();
             }
 
             if (Keys.Count == 1)
@@ -48,12 +51,11 @@ namespace ModelManager.Managers
                 while (true)
                 {
                     await OnPollAsync();
-                    await Task.Delay(10000, cancellationToken);
+                    await Task.Delay(5000, cancellationToken);
                     if (cancellationToken.IsCancellationRequested)
                         break;
                 }
             });
-
         }
     }
 }
