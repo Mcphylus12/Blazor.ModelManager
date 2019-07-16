@@ -1,0 +1,19 @@
+@using Site.Client.Adapter.Blazor;
+
+@inherits ModelsComponent<ListModel>
+
+@ListFragment
+
+@code {
+RenderFragment ListFragment;
+
+protected override void OnInit()
+{
+    base.OnInit();
+
+    ListFragment = builder =>
+    {
+        new ListBuilder(builder).Build(DataModel);
+    };
+}
+}
