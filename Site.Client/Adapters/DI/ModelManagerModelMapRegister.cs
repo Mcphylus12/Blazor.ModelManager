@@ -17,11 +17,5 @@ namespace Site.Client.Adapter.DI
         {
             managerStore.RegisterModelManager<TModel, TModelManager>();
         }
-
-        public void RegisterModelManager<TModel, TModelManager>(Func<TModelManager> factoryMethod) 
-            where TModelManager : ModelRequestManager
-        {
-            RegisterModelManager<TModelManager, TModelManager>();
-        }
     }
 }

@@ -18,11 +18,5 @@ namespace Site.Client.Adapter.DI
         {
             services.AddSingleton<TModelManager>();
         }
-
-        public void RegisterModelManager<TModel, TModelManager>(Func<TModelManager> factoryMethod) 
-            where TModelManager : ModelRequestManager
-        {
-            services.AddSingleton(_ => { return factoryMethod(); });
-        }
     }
 }
