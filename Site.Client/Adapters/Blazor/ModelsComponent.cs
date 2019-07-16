@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using System;
 
-namespace ModelManager.Components
+namespace Site.Client.Adapter.Blazor
 {
     public class ModelsComponent<T> : ComponentBase, IObserver<T>
         where T : class
@@ -35,9 +35,9 @@ namespace ModelManager.Components
 
             var handle = modelProvider.RequestHandle<T>();
 
-            handle.UpdateKey(Key);
-
             handle.Subscribe(this);
+
+            handle.UpdateKey(Key);
         }
     }
 }

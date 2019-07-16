@@ -1,9 +1,7 @@
 ﻿using Manager;
 using Microsoft.Extensions.DependencyInjection;
-using ModelManager.Components;
-using System;
 
-namespace Site.Client
+namespace Site.Client.Adapter.DI
 {
     public static class ServiceCollectionExtensions
     {
@@ -13,15 +11,15 @@ namespace Site.Client
             services.AddSingleton<IModelRequestManagerStore>(provider => provider.GetService<ModelRequestManagerStore>());
 
             ModelStoreCollection modelStore = new ModelStoreCollection();
+            services.AddSingleton(modelStore);
             services.AddSingleton<IModelStoreCollection>(modelStore);
-            services.AddSingleton<IModelStoreRegister>(modelStore);
             services.AddSingleton<IModelStorer>(modelStore);
 
             services.AddSingleton(typeof(IModelProvider), typeof(ModelProvider));
             services.AddSingleton<IModelManagerResolver, ServiceProviderAdapter>();
 
-            configuration.RegisterManagers(new ModelManagerRegisterer(services));
-            configuration.RegisterStoreOverrides(new ModelStoreRegisterer(modelStore, services));
+            configuration.RegisterManagers(new ModelManagerTypeRegister(services));
+            configuration.RegisterStoreOverrides(new ModelStoreTypeRegister(services));
         }
     }
 }

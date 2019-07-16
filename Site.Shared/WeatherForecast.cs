@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Site.Shared
+namespace Models
 {
     public class WeatherForecast
     {
@@ -13,5 +13,9 @@ namespace Site.Shared
         public string Summary { get; set; }
 
         public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+
+        public WeatherForecast()
+        {
+        }
     }
 }

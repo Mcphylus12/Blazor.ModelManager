@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Site.Client\Site.Client.csproj" />
-    <ProjectReference Include="..\Site.Shared\Site.Shared.csproj" />
+    <ProjectReference Include="..\Site.Shared\Models.csproj" />
   </ItemGroup>
 
 </Project>

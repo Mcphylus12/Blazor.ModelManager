@@ -1,9 +1,7 @@
-﻿using Manager;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ModelManager.Managers
+namespace Manager
 {
     public abstract class ModelRequestManager : IModelRequestManager
     {
@@ -34,7 +32,7 @@ namespace ModelManager.Managers
                 Keys.Add(key);
             }
 
-            OnKeysUpdatedAsync();
+            OnKeysUpdated();
         }
 
         public void RemoveInterest(string key)
@@ -46,9 +44,9 @@ namespace ModelManager.Managers
                 Keys.Remove(key);
             }
 
-            OnKeysUpdatedAsync();
+            OnKeysUpdated();
         }
 
-        protected abstract Task OnKeysUpdatedAsync();
+        protected abstract Task OnKeysUpdated();
     }
 }

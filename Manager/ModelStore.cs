@@ -31,7 +31,14 @@ namespace Manager
 
         public void UpdateModel(string key, object model)
         {
-            models[key] = model;
+            if (!models.ContainsKey(key))
+            {
+                models.Add(key, model);
+            }
+            else
+            {
+                models[key] = model;
+            }
 
             foreach (var listener in listeners[key])
             {

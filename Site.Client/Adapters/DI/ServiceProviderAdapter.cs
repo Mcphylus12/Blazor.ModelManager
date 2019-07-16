@@ -1,7 +1,7 @@
-﻿using System;
-using Manager;
+﻿using Manager;
+using System;
 
-namespace ModelManager.Components
+namespace Site.Client.Adapter.DI
 {
     public class ServiceProviderAdapter : IModelManagerResolver
     {

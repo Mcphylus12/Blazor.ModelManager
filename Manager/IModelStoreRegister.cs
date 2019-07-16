@@ -2,7 +2,6 @@
 {
     public interface IModelStoreRegister
     {
-        void RegisterStoreOverride<TModel, TModelStore>()
-            where TModelStore : class, IModelStore;
+        void RegisterStoreOverride<TModel>(IModelStore store);
     }
 }

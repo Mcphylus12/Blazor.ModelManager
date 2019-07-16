@@ -5,11 +5,15 @@ VisualStudioVersion = 16.0.29021.104
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Manager", "Manager\Manager.csproj", "{B61D4A02-68A6-426A-8119-FA118D9E5AC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Site.Server", "Site.Server\Site.Server.csproj", "{162F38F6-7999-4CB0-A897-446FCCFDCDD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Site.Server", "Site.Server\Site.Server.csproj", "{162F38F6-7999-4CB0-A897-446FCCFDCDD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Site.Client", "Site.Client\Site.Client.csproj", "{9F6D3299-2EA0-4A2D-B4AF-7CF08FC550F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Site.Client", "Site.Client\Site.Client.csproj", "{9F6D3299-2EA0-4A2D-B4AF-7CF08FC550F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Site.Shared", "Site.Shared\Site.Shared.csproj", "{C094C0FD-8A9F-4210-9C61-D364707F8130}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Site.Shared\Models.csproj", "{C094C0FD-8A9F-4210-9C61-D364707F8130}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{3E798CF1-36D9-41D4-AEF8-7B6CDE52EE0F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Product", "Product", "{90CF796D-5372-4803-806C-157B573CEF44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +40,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B61D4A02-68A6-426A-8119-FA118D9E5AC2} = {3E798CF1-36D9-41D4-AEF8-7B6CDE52EE0F}
+		{162F38F6-7999-4CB0-A897-446FCCFDCDD7} = {90CF796D-5372-4803-806C-157B573CEF44}
+		{9F6D3299-2EA0-4A2D-B4AF-7CF08FC550F9} = {90CF796D-5372-4803-806C-157B573CEF44}
+		{C094C0FD-8A9F-4210-9C61-D364707F8130} = {3E798CF1-36D9-41D4-AEF8-7B6CDE52EE0F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA5A9732-5F20-4C74-B961-01FFDF343B4F}

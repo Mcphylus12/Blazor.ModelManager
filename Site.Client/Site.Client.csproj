@@ -14,7 +14,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Manager\Manager.csproj" />
-    <ProjectReference Include="..\Site.Shared\Site.Shared.csproj" />
+    <ProjectReference Include="..\Site.Shared\Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="List\" />
   </ItemGroup>
 
 </Project>

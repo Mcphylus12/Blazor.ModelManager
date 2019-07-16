@@ -1,0 +1,23 @@
+@using Site.Client.Adapter.Blazor;
+
+@inherits ModelsComponent<LayoutNode>
+
+@LayoutFragment
+
+@code {
+RenderFragment LayoutFragment;
+
+protected override void OnInit()
+{
+    base.OnInit();
+
+    LayoutFragment = builder =>
+    {
+        if (DataModel != null)
+        {
+            DataModel.Visit(new RenderTreeLayoutBuilder(builder));
+        }
+    };
+}
+}
+

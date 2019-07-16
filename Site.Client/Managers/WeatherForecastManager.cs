@@ -1,12 +1,11 @@
 ﻿using Manager;
 using Microsoft.AspNetCore.Components;
-using Site.Shared;
-using System;
+using Models;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ModelManager.Managers
+namespace Site.Client.Managers
 {
     public class WeatherForecastManager : ModelRequestManager
     {
@@ -22,7 +21,7 @@ namespace ModelManager.Managers
 
         private async Task OnPollAsync()
         {
-            WeatherForecast[] forecasts = await http.GetJsonAsync<WeatherForecast[]>("api/SampleData/WeatherForecasts");
+            WeatherForecast[] forecasts = await http.GetJsonAsync<WeatherForecast[]>("api/SampleData/WeatherForecasts").ConfigureAwait(false);
 
             foreach (var forecast in forecasts)
             {
@@ -30,7 +29,7 @@ namespace ModelManager.Managers
             }
         }
 
-        protected override async Task OnKeysUpdatedAsync()
+        protected override async Task OnKeysUpdated()
         {
             if (Keys.Count == 0)
             {

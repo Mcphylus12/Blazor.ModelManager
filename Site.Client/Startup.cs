@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Site.Shared;
+using Site.Client.Adapter.Blazor;
+using Site.Client.Adapter.DI;
 
 namespace Site.Client
 {

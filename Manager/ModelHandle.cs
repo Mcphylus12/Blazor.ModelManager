@@ -24,9 +24,9 @@ namespace Manager
 
         public void UpdateKey(string newKey)
         {
-            UpdateRequestManager(newKey);
-
             UpdateModelStore(newKey);
+
+            UpdateRequestManager(newKey);
 
             _currentKey = newKey;
         }

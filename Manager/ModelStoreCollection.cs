@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Manager
 {
-    public class ModelStoreCollection : IModelStoreCollection, IModelStorer, IModelStoreRegister
+    public class ModelStoreCollection : IModelStoreCollection, IModelStorer
     {
         private Dictionary<Type, IModelStore> modelStore;
 
@@ -22,10 +22,9 @@ namespace Manager
             return modelStore[typeof(T)];
         }
 
-        public void RegisterStoreOverride<TModel, TModelStore>() 
-            where TModelStore : class, IModelStore
+        public void RegisterStoreOverride<TModel>(IModelStore store)
         {
-            throw new NotImplementedException();
+            modelStore.Add(typeof(TModel), store);
         }
 
         public void StoreModel<T>(string key, T model)
