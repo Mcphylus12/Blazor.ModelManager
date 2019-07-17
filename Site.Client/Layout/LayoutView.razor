@@ -5,19 +5,19 @@
 @LayoutFragment
 
 @code {
-RenderFragment LayoutFragment;
+    RenderFragment LayoutFragment;
 
-protected override void OnInit()
-{
-    base.OnInit();
-
-    LayoutFragment = builder =>
+    protected override void OnInit()
     {
-        if (DataModel != null)
+        base.OnInit();
+
+        LayoutFragment = builder =>
         {
-            DataModel.Visit(new RenderTreeLayoutBuilder(builder));
-        }
-    };
-}
+            if (DataModel != null)
+            {
+                DataModel.Visit(new RenderTreeLayoutBuilder(builder));
+            }
+        };
+    }
 }
 

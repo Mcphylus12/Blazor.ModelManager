@@ -12,4 +12,4 @@ Implmenters will
 
 The system will keep managers up to date with interested keys and automatically update the model in the ModelComponent class with the latest model
 
-Existing managers and models will be defined to render common data structures like trees and lists.
+Existing managers and models will be defined to render common data structures like trees and lists in the future.
